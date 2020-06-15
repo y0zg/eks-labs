@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - banana.k8slabs.online
+      #a706c6f4423e648af9cd447ec2cc5cfa-9c29d91abef99c5f.elb.us-east-1.amazonaws.com
+      #    secretName: tls-secret
+  rules:
+  - host: banana.k8slabs.online
+    #a706c6f4423e648af9cd447ec2cc5cfa-9c29d91abef99c5f.elb.us-east-1.amazonaws.com
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: banana-service
+            servicePort: 5678
