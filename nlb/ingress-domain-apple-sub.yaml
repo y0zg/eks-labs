@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-apple
+  name: ingress-apple-sub
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
@@ -9,11 +9,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - apple.k8slabs.online
+    - sub.apple.k8slabs.online
       #a706c6f4423e648af9cd447ec2cc5cfa-9c29d91abef99c5f.elb.us-east-1.amazonaws.com
       #    secretName: tls-secret
   rules:
-  - host: apple.k8slabs.online
+  - host: sub.apple.k8slabs.online
     #a706c6f4423e648af9cd447ec2cc5cfa-9c29d91abef99c5f.elb.us-east-1.amazonaws.com
     http:
       paths:
